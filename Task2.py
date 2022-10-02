@@ -1,13 +1,18 @@
-# Задайте список из n чисел последовательности (1+1/n)^n и выведите на экран их сумму,
-# округлённую до трёх знаков после точки.
-# Пример:
-# Для n = 6 -> 14.072
+# Задайте последовательность чисел. Напишите программу, 
+# которая выведет список неповторяющихся элементов исходной последовательности.
 
-n = int(input('Введите число: ')) 
+from random import randint
 
-def get_squerence(n):
-    return [round((1 + 1 / x)**x, 5) for x in range (1, n + 1)]
+def create_list(size, m, n):
+    return [randint(m, n) for i in range(size)]
 
-nums = get_squerence(n)
-print(nums)
-print(round(sum(nums), 5))
+def get_unic_value(list):
+    return [i for i in set(list)]
+
+size = 10
+m = 1
+n = 10
+
+origin = create_list(size, m, n)
+print(origin)
+print(get_unic_value(origin))
